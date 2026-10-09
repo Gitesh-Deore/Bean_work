@@ -1,0 +1,469 @@
+package com.example.ckyc;
+
+import java.util.List;
+
+/** Simple bean model for CKYC LEGAL create request (no annotations). Field names match JSON keys exactly. */
+public class CkycLegalRequest {
+
+    private String REQUEST_REFERENCE_NUMBER;
+    private Request REQUEST;
+    private String DIGI_SIGN;
+
+    public String getREQUEST_REFERENCE_NUMBER() { return REQUEST_REFERENCE_NUMBER; }
+    public void setREQUEST_REFERENCE_NUMBER(String REQUEST_REFERENCE_NUMBER) { this.REQUEST_REFERENCE_NUMBER = REQUEST_REFERENCE_NUMBER; }
+    public Request getREQUEST() { return REQUEST; }
+    public void setREQUEST(Request REQUEST) { this.REQUEST = REQUEST; }
+    public String getDIGI_SIGN() { return DIGI_SIGN; }
+    public void setDIGI_SIGN(String DIGI_SIGN) { this.DIGI_SIGN = DIGI_SIGN; }
+
+    public static class Request {
+        private String SOURCE_ID;
+        private String CHANNEL_ID;
+        private String BRANCH_CODE;
+        private String CIF_NUMBER;
+        private String DESTINATION;
+        private String TXN_TYPE;
+        private String TXN_SUB_TYPE;
+        private EisPayload EIS_PAYLOAD;
+
+        public String getSOURCE_ID() { return SOURCE_ID; }
+        public void setSOURCE_ID(String SOURCE_ID) { this.SOURCE_ID = SOURCE_ID; }
+        public String getCHANNEL_ID() { return CHANNEL_ID; }
+        public void setCHANNEL_ID(String CHANNEL_ID) { this.CHANNEL_ID = CHANNEL_ID; }
+        public String getBRANCH_CODE() { return BRANCH_CODE; }
+        public void setBRANCH_CODE(String BRANCH_CODE) { this.BRANCH_CODE = BRANCH_CODE; }
+        public String getCIF_NUMBER() { return CIF_NUMBER; }
+        public void setCIF_NUMBER(String CIF_NUMBER) { this.CIF_NUMBER = CIF_NUMBER; }
+        public String getDESTINATION() { return DESTINATION; }
+        public void setDESTINATION(String DESTINATION) { this.DESTINATION = DESTINATION; }
+        public String getTXN_TYPE() { return TXN_TYPE; }
+        public void setTXN_TYPE(String TXN_TYPE) { this.TXN_TYPE = TXN_TYPE; }
+        public String getTXN_SUB_TYPE() { return TXN_SUB_TYPE; }
+        public void setTXN_SUB_TYPE(String TXN_SUB_TYPE) { this.TXN_SUB_TYPE = TXN_SUB_TYPE; }
+        public EisPayload getEIS_PAYLOAD() { return EIS_PAYLOAD; }
+        public void setEIS_PAYLOAD(EisPayload EIS_PAYLOAD) { this.EIS_PAYLOAD = EIS_PAYLOAD; }
+    }
+
+    public static class EisPayload {
+        private Body BODY;
+
+        public Body getBODY() { return BODY; }
+        public void setBODY(Body BODY) { this.BODY = BODY; }
+    }
+
+    public static class Body {
+        private String reId;
+        private String requestId;
+        private String timestamp;
+        private CkycInq ckycInq;
+
+        public String getReId() { return reId; }
+        public void setReId(String reId) { this.reId = reId; }
+        public String getRequestId() { return requestId; }
+        public void setRequestId(String requestId) { this.requestId = requestId; }
+        public String getTimestamp() { return timestamp; }
+        public void setTimestamp(String timestamp) { this.timestamp = timestamp; }
+        public CkycInq getCkycInq() { return ckycInq; }
+        public void setCkycInq(CkycInq ckycInq) { this.ckycInq = ckycInq; }
+    }
+
+    public static class CkycInq {
+        private String ckycType;
+        private LegalData dataFor_encryptedData;
+
+        public String getCkycType() { return ckycType; }
+        public void setCkycType(String ckycType) { this.ckycType = ckycType; }
+        public LegalData getDataFor_encryptedData() { return dataFor_encryptedData; }
+        public void setDataFor_encryptedData(LegalData dataFor_encryptedData) { this.dataFor_encryptedData = dataFor_encryptedData; }
+    }
+
+    public static class LegalData {
+        private String searchKey;
+        private EntityDetails entityDetails;
+        private IdentityProof identityProof;
+        private AddressDetails addressDetails;
+        private ContactDetails contactDetails;
+        private Integer relationCount;
+        private Integer beneficialOwnerCount;
+        private List<RelatedParty> relatedParties;
+        private OtherDetails otherDetails;
+        private AttestationDetails attestationDetails;
+
+        public String getSearchKey() { return searchKey; }
+        public void setSearchKey(String searchKey) { this.searchKey = searchKey; }
+        public EntityDetails getEntityDetails() { return entityDetails; }
+        public void setEntityDetails(EntityDetails entityDetails) { this.entityDetails = entityDetails; }
+        public IdentityProof getIdentityProof() { return identityProof; }
+        public void setIdentityProof(IdentityProof identityProof) { this.identityProof = identityProof; }
+        public AddressDetails getAddressDetails() { return addressDetails; }
+        public void setAddressDetails(AddressDetails addressDetails) { this.addressDetails = addressDetails; }
+        public ContactDetails getContactDetails() { return contactDetails; }
+        public void setContactDetails(ContactDetails contactDetails) { this.contactDetails = contactDetails; }
+        public Integer getRelationCount() { return relationCount; }
+        public void setRelationCount(Integer relationCount) { this.relationCount = relationCount; }
+        public Integer getBeneficialOwnerCount() { return beneficialOwnerCount; }
+        public void setBeneficialOwnerCount(Integer beneficialOwnerCount) { this.beneficialOwnerCount = beneficialOwnerCount; }
+        public List<RelatedParty> getRelatedParties() { return relatedParties; }
+        public void setRelatedParties(List<RelatedParty> relatedParties) { this.relatedParties = relatedParties; }
+        public OtherDetails getOtherDetails() { return otherDetails; }
+        public void setOtherDetails(OtherDetails otherDetails) { this.otherDetails = otherDetails; }
+        public AttestationDetails getAttestationDetails() { return attestationDetails; }
+        public void setAttestationDetails(AttestationDetails attestationDetails) { this.attestationDetails = attestationDetails; }
+    }
+
+    public static class Document {
+        private String documentName;
+        private String b64Content;
+        private String contentType;
+
+        public String getDocumentName() { return documentName; }
+        public void setDocumentName(String documentName) { this.documentName = documentName; }
+        public String getB64Content() { return b64Content; }
+        public void setB64Content(String b64Content) { this.b64Content = b64Content; }
+        public String getContentType() { return contentType; }
+        public void setContentType(String contentType) { this.contentType = contentType; }
+    }
+
+    public static class EntityDetails {
+        private String name;
+        private String constitutionType;
+        private Boolean isListedCompany;
+        private Boolean isRegisteredFirm;
+        private Boolean isRegisteredTrust;
+        private String countryOfRegistration;
+        private String placeOfRegistration;
+        private String dateOfRegistration;
+        private PanDetails panDetails;
+        private TaxIdentification taxIdentification;
+
+        public String getName() { return name; }
+        public void setName(String name) { this.name = name; }
+        public String getConstitutionType() { return constitutionType; }
+        public void setConstitutionType(String constitutionType) { this.constitutionType = constitutionType; }
+        public Boolean getIsListedCompany() { return isListedCompany; }
+        public void setIsListedCompany(Boolean isListedCompany) { this.isListedCompany = isListedCompany; }
+        public Boolean getIsRegisteredFirm() { return isRegisteredFirm; }
+        public void setIsRegisteredFirm(Boolean isRegisteredFirm) { this.isRegisteredFirm = isRegisteredFirm; }
+        public Boolean getIsRegisteredTrust() { return isRegisteredTrust; }
+        public void setIsRegisteredTrust(Boolean isRegisteredTrust) { this.isRegisteredTrust = isRegisteredTrust; }
+        public String getCountryOfRegistration() { return countryOfRegistration; }
+        public void setCountryOfRegistration(String countryOfRegistration) { this.countryOfRegistration = countryOfRegistration; }
+        public String getPlaceOfRegistration() { return placeOfRegistration; }
+        public void setPlaceOfRegistration(String placeOfRegistration) { this.placeOfRegistration = placeOfRegistration; }
+        public String getDateOfRegistration() { return dateOfRegistration; }
+        public void setDateOfRegistration(String dateOfRegistration) { this.dateOfRegistration = dateOfRegistration; }
+        public PanDetails getPanDetails() { return panDetails; }
+        public void setPanDetails(PanDetails panDetails) { this.panDetails = panDetails; }
+        public TaxIdentification getTaxIdentification() { return taxIdentification; }
+        public void setTaxIdentification(TaxIdentification taxIdentification) { this.taxIdentification = taxIdentification; }
+    }
+
+    public static class PanDetails {
+        private String number;
+        private Boolean verified;
+        private Boolean form97Submitted;
+        private Document document;
+
+        public String getNumber() { return number; }
+        public void setNumber(String number) { this.number = number; }
+        public Boolean getVerified() { return verified; }
+        public void setVerified(Boolean verified) { this.verified = verified; }
+        public Boolean getForm97Submitted() { return form97Submitted; }
+        public void setForm97Submitted(Boolean form97Submitted) { this.form97Submitted = form97Submitted; }
+        public Document getDocument() { return document; }
+        public void setDocument(Document document) { this.document = document; }
+    }
+
+    public static class TaxIdentification {
+        private String type;
+        private String country;
+        private String number;
+        private Document document;
+
+        public String getType() { return type; }
+        public void setType(String type) { this.type = type; }
+        public String getCountry() { return country; }
+        public void setCountry(String country) { this.country = country; }
+        public String getNumber() { return number; }
+        public void setNumber(String number) { this.number = number; }
+        public Document getDocument() { return document; }
+        public void setDocument(Document document) { this.document = document; }
+    }
+
+    public static class IdentityProof {
+        private String type;
+        private String number;
+        private List<IdentityDocument> documents;
+
+        public String getType() { return type; }
+        public void setType(String type) { this.type = type; }
+        public String getNumber() { return number; }
+        public void setNumber(String number) { this.number = number; }
+        public List<IdentityDocument> getDocuments() { return documents; }
+        public void setDocuments(List<IdentityDocument> documents) { this.documents = documents; }
+    }
+
+    public static class IdentityDocument {
+        private String documentType;
+        private String documentName;
+        private String b64Content;
+        private String contentType;
+
+        public String getDocumentType() { return documentType; }
+        public void setDocumentType(String documentType) { this.documentType = documentType; }
+        public String getDocumentName() { return documentName; }
+        public void setDocumentName(String documentName) { this.documentName = documentName; }
+        public String getB64Content() { return b64Content; }
+        public void setB64Content(String b64Content) { this.b64Content = b64Content; }
+        public String getContentType() { return contentType; }
+        public void setContentType(String contentType) { this.contentType = contentType; }
+    }
+
+    public static class AddressDetails {
+        private Address registeredAddress;
+        private PrincipalAddress principalAddress;
+
+        public Address getRegisteredAddress() { return registeredAddress; }
+        public void setRegisteredAddress(Address registeredAddress) { this.registeredAddress = registeredAddress; }
+        public PrincipalAddress getPrincipalAddress() { return principalAddress; }
+        public void setPrincipalAddress(PrincipalAddress principalAddress) { this.principalAddress = principalAddress; }
+    }
+
+    public static class Address {
+        private String line1;
+        private String line2;
+        private String line3;
+        private String countryCode;
+        private String state;
+        private String stateOthers;
+        private String district;
+        private String city;
+        private String pincode;
+        private String pincodeOther;
+        private String addressType;
+        private String digipin;
+        private ProofOfAddress proofOfAddress;
+        private Document document;
+
+        public String getLine1() { return line1; }
+        public void setLine1(String line1) { this.line1 = line1; }
+        public String getLine2() { return line2; }
+        public void setLine2(String line2) { this.line2 = line2; }
+        public String getLine3() { return line3; }
+        public void setLine3(String line3) { this.line3 = line3; }
+        public String getCountryCode() { return countryCode; }
+        public void setCountryCode(String countryCode) { this.countryCode = countryCode; }
+        public String getState() { return state; }
+        public void setState(String state) { this.state = state; }
+        public String getStateOthers() { return stateOthers; }
+        public void setStateOthers(String stateOthers) { this.stateOthers = stateOthers; }
+        public String getDistrict() { return district; }
+        public void setDistrict(String district) { this.district = district; }
+        public String getCity() { return city; }
+        public void setCity(String city) { this.city = city; }
+        public String getPincode() { return pincode; }
+        public void setPincode(String pincode) { this.pincode = pincode; }
+        public String getPincodeOther() { return pincodeOther; }
+        public void setPincodeOther(String pincodeOther) { this.pincodeOther = pincodeOther; }
+        public String getAddressType() { return addressType; }
+        public void setAddressType(String addressType) { this.addressType = addressType; }
+        public String getDigipin() { return digipin; }
+        public void setDigipin(String digipin) { this.digipin = digipin; }
+        public ProofOfAddress getProofOfAddress() { return proofOfAddress; }
+        public void setProofOfAddress(ProofOfAddress proofOfAddress) { this.proofOfAddress = proofOfAddress; }
+        public Document getDocument() { return document; }
+        public void setDocument(Document document) { this.document = document; }
+    }
+
+    public static class PrincipalAddress {
+        private Boolean sameAsRegistered;
+        private String line1;
+        private String line2;
+        private String line3;
+        private String countryCode;
+        private String state;
+        private String stateOthers;
+        private String district;
+        private String city;
+        private String pincode;
+        private String pincodeOther;
+        private String addressType;
+        private String digipin;
+        private ProofOfAddress proofOfAddress;
+        private Document document;
+
+        public Boolean getSameAsRegistered() { return sameAsRegistered; }
+        public void setSameAsRegistered(Boolean sameAsRegistered) { this.sameAsRegistered = sameAsRegistered; }
+        public String getLine1() { return line1; }
+        public void setLine1(String line1) { this.line1 = line1; }
+        public String getLine2() { return line2; }
+        public void setLine2(String line2) { this.line2 = line2; }
+        public String getLine3() { return line3; }
+        public void setLine3(String line3) { this.line3 = line3; }
+        public String getCountryCode() { return countryCode; }
+        public void setCountryCode(String countryCode) { this.countryCode = countryCode; }
+        public String getState() { return state; }
+        public void setState(String state) { this.state = state; }
+        public String getStateOthers() { return stateOthers; }
+        public void setStateOthers(String stateOthers) { this.stateOthers = stateOthers; }
+        public String getDistrict() { return district; }
+        public void setDistrict(String district) { this.district = district; }
+        public String getCity() { return city; }
+        public void setCity(String city) { this.city = city; }
+        public String getPincode() { return pincode; }
+        public void setPincode(String pincode) { this.pincode = pincode; }
+        public String getPincodeOther() { return pincodeOther; }
+        public void setPincodeOther(String pincodeOther) { this.pincodeOther = pincodeOther; }
+        public String getAddressType() { return addressType; }
+        public void setAddressType(String addressType) { this.addressType = addressType; }
+        public String getDigipin() { return digipin; }
+        public void setDigipin(String digipin) { this.digipin = digipin; }
+        public ProofOfAddress getProofOfAddress() { return proofOfAddress; }
+        public void setProofOfAddress(ProofOfAddress proofOfAddress) { this.proofOfAddress = proofOfAddress; }
+        public Document getDocument() { return document; }
+        public void setDocument(Document document) { this.document = document; }
+    }
+
+    public static class ProofOfAddress {
+        private String type;
+        private String otherDocumentName;
+
+        public String getType() { return type; }
+        public void setType(String type) { this.type = type; }
+        public String getOtherDocumentName() { return otherDocumentName; }
+        public void setOtherDocumentName(String otherDocumentName) { this.otherDocumentName = otherDocumentName; }
+    }
+
+    public static class ContactDetails {
+        private Contact primary;
+        private Contact secondary;
+        private String telephone;
+        private String fax;
+
+        public Contact getPrimary() { return primary; }
+        public void setPrimary(Contact primary) { this.primary = primary; }
+        public Contact getSecondary() { return secondary; }
+        public void setSecondary(Contact secondary) { this.secondary = secondary; }
+        public String getTelephone() { return telephone; }
+        public void setTelephone(String telephone) { this.telephone = telephone; }
+        public String getFax() { return fax; }
+        public void setFax(String fax) { this.fax = fax; }
+    }
+
+    public static class Contact {
+        private String email;
+        private Mobile mobile;
+
+        public String getEmail() { return email; }
+        public void setEmail(String email) { this.email = email; }
+        public Mobile getMobile() { return mobile; }
+        public void setMobile(Mobile mobile) { this.mobile = mobile; }
+    }
+
+    public static class Mobile {
+        private String countryCode;
+        private String number;
+
+        public String getCountryCode() { return countryCode; }
+        public void setCountryCode(String countryCode) { this.countryCode = countryCode; }
+        public String getNumber() { return number; }
+        public void setNumber(String number) { this.number = number; }
+    }
+
+    public static class RelatedParty {
+        private String legalRelationType;
+        private String ckycId;
+        private String controllingInterest;
+        private String percentOfOwnership;
+        private String directorIdentifyNumber;
+
+        public String getLegalRelationType() { return legalRelationType; }
+        public void setLegalRelationType(String legalRelationType) { this.legalRelationType = legalRelationType; }
+        public String getCkycId() { return ckycId; }
+        public void setCkycId(String ckycId) { this.ckycId = ckycId; }
+        public String getControllingInterest() { return controllingInterest; }
+        public void setControllingInterest(String controllingInterest) { this.controllingInterest = controllingInterest; }
+        public String getPercentOfOwnership() { return percentOfOwnership; }
+        public void setPercentOfOwnership(String percentOfOwnership) { this.percentOfOwnership = percentOfOwnership; }
+        public String getDirectorIdentifyNumber() { return directorIdentifyNumber; }
+        public void setDirectorIdentifyNumber(String directorIdentifyNumber) { this.directorIdentifyNumber = directorIdentifyNumber; }
+    }
+
+    public static class OtherDetails {
+        private String verification;
+
+        public String getVerification() { return verification; }
+        public void setVerification(String verification) { this.verification = verification; }
+    }
+
+    public static class AttestationDetails {
+        private Verification verification;
+        private KycVerification kycVerification;
+        private Employee employee;
+        private Declaration declaration;
+        private Document undertakingDocument;
+
+        public Verification getVerification() { return verification; }
+        public void setVerification(Verification verification) { this.verification = verification; }
+        public KycVerification getKycVerification() { return kycVerification; }
+        public void setKycVerification(KycVerification kycVerification) { this.kycVerification = kycVerification; }
+        public Employee getEmployee() { return employee; }
+        public void setEmployee(Employee employee) { this.employee = employee; }
+        public Declaration getDeclaration() { return declaration; }
+        public void setDeclaration(Declaration declaration) { this.declaration = declaration; }
+        public Document getUndertakingDocument() { return undertakingDocument; }
+        public void setUndertakingDocument(Document undertakingDocument) { this.undertakingDocument = undertakingDocument; }
+    }
+
+    public static class Verification {
+        private Boolean certifiedCopies;
+        private Boolean equivalentEDoc;
+        private Boolean verifiedFromDigilocker;
+
+        public Boolean getCertifiedCopies() { return certifiedCopies; }
+        public void setCertifiedCopies(Boolean certifiedCopies) { this.certifiedCopies = certifiedCopies; }
+        public Boolean getEquivalentEDoc() { return equivalentEDoc; }
+        public void setEquivalentEDoc(Boolean equivalentEDoc) { this.equivalentEDoc = equivalentEDoc; }
+        public Boolean getVerifiedFromDigilocker() { return verifiedFromDigilocker; }
+        public void setVerifiedFromDigilocker(Boolean verifiedFromDigilocker) { this.verifiedFromDigilocker = verifiedFromDigilocker; }
+    }
+
+    public static class KycVerification {
+        private String carriedOutDate;
+
+        public String getCarriedOutDate() { return carriedOutDate; }
+        public void setCarriedOutDate(String carriedOutDate) { this.carriedOutDate = carriedOutDate; }
+    }
+
+    public static class Employee {
+        private String name;
+        private String code;
+        private String designation;
+        private String branch;
+        private String ckycId;
+
+        public String getName() { return name; }
+        public void setName(String name) { this.name = name; }
+        public String getCode() { return code; }
+        public void setCode(String code) { this.code = code; }
+        public String getDesignation() { return designation; }
+        public void setDesignation(String designation) { this.designation = designation; }
+        public String getBranch() { return branch; }
+        public void setBranch(String branch) { this.branch = branch; }
+        public String getCkycId() { return ckycId; }
+        public void setCkycId(String ckycId) { this.ckycId = ckycId; }
+    }
+
+    public static class Declaration {
+        private String date;
+        private String place;
+        private Document supportingDocument;
+
+        public String getDate() { return date; }
+        public void setDate(String date) { this.date = date; }
+        public String getPlace() { return place; }
+        public void setPlace(String place) { this.place = place; }
+        public Document getSupportingDocument() { return supportingDocument; }
+        public void setSupportingDocument(Document supportingDocument) { this.supportingDocument = supportingDocument; }
+    }
+}
